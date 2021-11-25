@@ -33,6 +33,9 @@ function SocketsProvider(props: any) : any {
         window.onfocus = function () {
             document.title = "Chatter"
         }
+        window.onload = function () {
+          document.title = "Chatter"
+      }
     })
 
     socket.on(EVENTS.SERVER.ROOMS, ( value ) => {

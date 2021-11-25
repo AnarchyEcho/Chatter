@@ -1,7 +1,16 @@
 import { useSockets } from "../context/socket.context"
 import { useRef } from 'react'
 import EVENTS from '../config/events'
+import styled from "styled-components"
 
+const Navigation = styled.nav`
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-right: 10px;
+    border-right: 2px solid #fff;
+    height: 100%;
+`
 
 export default function RoomsContainer() {
     const { socket, roomId, rooms } = useSockets()
@@ -24,7 +33,7 @@ export default function RoomsContainer() {
     }
 
     return (
-        <nav>
+        <Navigation>
             <div>
                 <input ref={newRoomRef} placeholder="Room name" />
                 <button onClick={handleCreateRoom} >Create Room</button>
@@ -45,6 +54,6 @@ export default function RoomsContainer() {
             }
         )}
 
-        </nav>
+        </Navigation>
     )
 }
