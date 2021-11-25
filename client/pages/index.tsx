@@ -45,7 +45,7 @@ export default function Home() {
           <UsernameInner>
             <form>
               <input placeholder="username" ref={usernameRef} />
-              <button type="submit" onClick={handleUsername} >Start</button>
+              <button type="submit" onClick={handleUsername} >Login</button>
             </form>
           </UsernameInner>
         </UsernameWrapper>
