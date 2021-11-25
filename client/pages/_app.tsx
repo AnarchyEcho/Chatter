@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: #202020; 
     color: #f5f5f5;
     box-sizing: border-box;
+    overflow-y: hidden;
   }
   a {
   color: inherit;
