@@ -1,15 +1,18 @@
 import { useSockets } from "../context/socket.context"
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import EVENTS from '../config/events'
 import styled from "styled-components"
 
 const Navigation = styled.nav`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     padding-right: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
     border-right: 2px solid #fff;
-    height: 100%;
+    width: fit-content;
+    height: 100vh;
 `
 
 export default function RoomsContainer() {
@@ -28,7 +31,7 @@ export default function RoomsContainer() {
 
     function handleJoinRoom(key) {
         if (key === roomId) return;
-
+        
         socket.emit(EVENTS.CLIENT.JOIN_ROOM, key)
     }
 
@@ -36,7 +39,7 @@ export default function RoomsContainer() {
         <Navigation>
             <div>
                 <input ref={newRoomRef} placeholder="Room name" />
-                <button onClick={handleCreateRoom} >Create Room</button>
+                <button onClick={handleCreateRoom}>Create Room</button>
             </div>
 
             {Object.keys(rooms).map((key) => {

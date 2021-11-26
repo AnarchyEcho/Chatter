@@ -14,9 +14,13 @@ const Chat = styled.div`
     align-items: center;
     text-align: center;
 `
-const ChatMessages = styled.div`
+const MessageContainer = styled.div`
     word-wrap: break-word;
     width: 100%;
+    height: 100%;
+`
+const ChatMessages = styled.div`
+
 `
 const ChatSend = styled.div`
     display: flex;
@@ -60,6 +64,7 @@ export default function MessagesContainer() {
 
     newMessageRef.current.value = ""
     document.getElementById('messageField').focus()
+    window.scrollTo(0, document.body.scrollHeight)
 }
 
     const dated = new Date()
@@ -71,13 +76,15 @@ export default function MessagesContainer() {
 
     return (
         <Chat>
-            {messages.map(({message}, index) => {
-                return (
-                    <ChatMessages>
-                        <p key={ms}><b>{username}</b>: {message}</p>
-                    </ChatMessages>
-                )
-            })}
+            <MessageContainer>
+                {messages.map(({message}, index) => {
+                    return (
+                        <ChatMessages>
+                            <p key={ms}><b>{username}</b>: {message}</p>
+                        </ChatMessages>
+                    )
+                })}
+            </MessageContainer>
 
             <ChatSend>
                 <TextArea

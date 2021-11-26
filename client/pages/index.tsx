@@ -1,18 +1,22 @@
 import { useRef, useEffect } from 'react'
 import styled from 'styled-components'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import { useSockets } from '../context/socket.context'
 import RoomsContainer from '../containers/Rooms'
 import MessagesContainer from '../containers/Messages'
 
+const Main = styled.div`
 
+`
 const UsernameWrapper = styled.div`
-  
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 50vh;
+  width: 100%;
+  height: 100%;
 `
 const UsernameInner = styled.div`
-  
+
 `
 const Container = styled.div`
 
@@ -39,11 +43,11 @@ export default function Home() {
   }, [])
 
   return (
-    <div>
+    <Main>
       {!username && (
       <UsernameWrapper>
           <UsernameInner>
-            <form>
+            <form action={null}>
               <input placeholder="username" ref={usernameRef} />
               <button type="submit" onClick={handleUsername} >Login</button>
             </form>
@@ -56,6 +60,6 @@ export default function Home() {
           <MessagesContainer />
         </Container>
       )}
-    </div>
+    </Main>
   );
 }

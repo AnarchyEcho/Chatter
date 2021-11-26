@@ -38,17 +38,17 @@ function SocketsProvider(props: any) : any {
       }
     })
 
-    socket.on(EVENTS.SERVER.ROOMS, ( value ) => {
-        setRooms(value)
-    })
+      useEffect(() => {
+        socket.on(EVENTS.SERVER.ROOMS, ( value ) => {
+            setRooms(value)
+        })
 
-    socket.on(EVENTS.SERVER.JOINED_ROOM, ( value ) => {
-        setRoomId(value)
+        socket.on(EVENTS.SERVER.JOINED_ROOM, ( value ) => {
+            setRoomId(value)
 
-        setMessages([])
-    })
+            setMessages([])
+        })
 
-    useEffect(() => {
         socket.on(EVENTS.SERVER.ROOM_MESSAGE, ({ message, username, time }) => {
           if (!document.hasFocus()) {
             document.title = "New message!";
