@@ -13,6 +13,7 @@ const Navigation = styled.nav`
     border-right: 2px solid #fff;
     width: fit-content;
     height: 100vh;
+    overflow-y: scroll;
 `
 
 export default function RoomsContainer() {

@@ -34,6 +34,14 @@ export default function Home() {
 
     setUsername(value)
     localStorage.setItem('username', value)
+
+    const date = new Date()
+
+    // Set it expire in 7 days
+    date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
+
+    // Set it
+    document.cookie = username+"="+value+"; expires="+date.toUTCString()+"; path=/";
   }
 
   useEffect(() => {

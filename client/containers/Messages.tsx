@@ -92,6 +92,8 @@ export default function MessagesContainer() {
                 ref={newMessageRef}
                 id="messageField"
                 style={{resize: "none"}}
+                // @ts-ignore
+                maxLength="256"
                 />
                 <button onClick={handleSendMessage}>Send</button>
             </ChatSend>
