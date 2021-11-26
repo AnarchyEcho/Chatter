@@ -8,16 +8,17 @@ const Chat = styled.div`
     position: absolute;
     right: 5%;
     flex-direction: column;
-    height: 100%;
     width: 72vw;
     justify-content: center;
     align-items: center;
     text-align: center;
+    overflow-y: scroll;
 `
 const MessageContainer = styled.div`
     word-wrap: break-word;
     width: 100%;
     height: 100%;
+    margin-bottom: 100px;
 `
 const ChatMessages = styled.div`
 
