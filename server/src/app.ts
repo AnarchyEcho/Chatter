@@ -18,7 +18,7 @@ const httpServer = createServer(app)
 const io = new Server(httpServer, {
     cors: {
         origin: corsOrigin,
-        credentials: true,
+        credentials: false,
     }
 });
 
